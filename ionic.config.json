@@ -1,5 +1,7 @@
 {
   "name": "MemoryK",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
