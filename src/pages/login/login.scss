@@ -1,6 +1,7 @@
 page-login {
     .error-message{
         color:red;
+        font-size:20px;
     }
     ion-content{
         background-image: url("../assets/imgs/appbackground.jpg");
@@ -23,6 +24,7 @@ page-login {
     .email,.password
     {
         border-radius: 10px;
+        font-size: 20px;
     }
     
 
