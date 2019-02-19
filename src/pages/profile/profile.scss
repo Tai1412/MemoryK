@@ -1,0 +1,23 @@
+page-profile {
+    .error-message
+    {
+      color: red;
+    }
+    ion-content{
+        background-image: url("../assets/imgs/appbackground.jpg");
+        background-size: cover;
+    }
+    ion-title{
+        text-align: center;
+    }
+    .image{
+        text-align: center;
+        height: 30%;
+    }
+    img{
+        margin-top:25px;
+        padding:0;
+        width:25%;
+        height: 50%;
+    }
+}

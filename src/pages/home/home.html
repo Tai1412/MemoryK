@@ -1,18 +1,51 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+  <ion-toolbar color="sand">
+    <ion-title>Your Memory</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openNewMemoryPage()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
+<ion-content>
+  <div>
+    <ion-list>
+      <ion-card *ngFor="let memoryItem of memoryItems" (click)="viewDetails(memoryItem.payload.doc.id,memoryItem.payload.doc.data())">
+        <ion-thumbnail>
+          <img [src]="memoryItem.payload.doc.data().memoryImage">
+        </ion-thumbnail>
+        <ion-card-content>
+          <ion-card-title>
+            {{memoryItem.payload.doc.data().memoryTitle}}
+          </ion-card-title>
+          <p>
+            {{memoryItem.payload.doc.data().memoryDescription}}
+          </p>
+        </ion-card-content>
 
-<ion-content padding>
-  <div *ngIf="afAuth.user | async as user; else showLogin">
-    <h1>Hello {{ user.displayName }}!</h1>
-    <button (click)="logout()">Logout</button>
+        <ion-row>
+          <ion-col>
+            <button ion-button clear small color="danger" icon-start>
+              <ion-icon name='calendar'></ion-icon>
+              {{memoryItem.payload.doc.data().memoryDate}}
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button clear small color="danger" icon-start>
+              <ion-icon name='star'></ion-icon>
+              {{memoryItem.payload.doc.data().importantRate}}
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button clear small color="danger" icon-start>
+              <ion-icon name='navigate'></ion-icon>
+              {{memoryItem.payload.doc.data().memoryLocation}}
+            </button>
+          </ion-col>
+        </ion-row>
+
+      </ion-card>
+    </ion-list>
   </div>
-  <ng-template #showLogin>
-    <p>Please login.</p>
-    <button (click)="login()">Login with Google</button>
-  </ng-template>
 </ion-content>

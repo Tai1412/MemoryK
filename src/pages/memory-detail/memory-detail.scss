@@ -1,0 +1,12 @@
+page-memory-detail {
+    .error-message{
+        color: red;
+    }
+    ion-title{
+        text-align: center;
+    }
+    ion-content{
+        background-image: url("../assets/imgs/appbackground.jpg");
+        background-size: cover;
+    }
+}

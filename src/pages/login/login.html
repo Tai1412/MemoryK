@@ -1,0 +1,30 @@
+<ion-content >
+  <img src="assets/imgs/backgroundlr.jpg" alt="backG">
+  <h1>MemoryK Login</h1>
+  <form  [formGroup]="login" (ngSubmit)="emailLogin(login.value)">
+  <ion-list class="form-list">
+    <ion-item class="email">
+      <ion-label color="primary" stacked>Your Email</ion-label>
+      <ion-input  type="email" formControlName="email" clearInput></ion-input>
+    </ion-item>
+    <ion-item class="password">
+      <ion-label color="primary" stacked>Your Password</ion-label>
+      <ion-input type="password" formControlName="password" clearInput></ion-input>
+    </ion-item>
+  
+    <button ion-button block color="sand"  type="submit" [disabled]="!login.valid">Login</button>
+  </ion-list>
+  </form>
+  <label class="error-message">{{errorMessage}}</label>
+  <ion-list-header class="signUpAndFbLogin">
+      <button ion-button outline color="danger" round icon-start item-start (click)="openSignup()">
+          <ion-icon name='person-add'></ion-icon>
+        Register
+      </button>
+      Or
+      <button ion-button icon-end outline round color="primary" item-end (click)="facebookLogin()">
+          Login
+          <ion-icon name='logo-facebook'></ion-icon>
+      </button>
+  </ion-list-header>
+</ion-content>

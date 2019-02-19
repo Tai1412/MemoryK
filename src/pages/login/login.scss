@@ -1,0 +1,29 @@
+page-login {
+    .error-message{
+        color:red;
+    }
+    ion-content{
+        background-image: url("../assets/imgs/appbackground.jpg");
+        background-size: cover;
+        text-align: center;
+    }
+    .form-list{
+        margin-top:20px;
+        margin-left:15px;
+        margin-right:15px;
+    }
+    .signUpAndFbLogin{
+        background-color: #fef1e0;
+        padding:0;
+        text-align: center;
+    }
+    h1{
+        color:blue;
+    }
+    .email,.password
+    {
+        border-radius: 10px;
+    }
+    
+
+}

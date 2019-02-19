@@ -1,0 +1,23 @@
+page-register {
+    .error-message{
+        color:red;
+    }
+    ion-content{
+        background-image: url("../assets/imgs/appbackground.jpg");
+        background-size: cover;
+        text-align: center;
+    }
+    .form-list{
+        margin-top:20px;
+        margin-left:15px;
+        margin-right:15px;
+    }
+    h1{   
+        color:#F4A460;
+        text-align: center;
+    }
+    .email,.password
+    {
+        border-radius: 10px;
+    }
+}

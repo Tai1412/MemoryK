@@ -1,0 +1,70 @@
+<ion-header>
+    <ion-navbar color="sand">
+      <ion-title>
+        Update Your Memory
+      </ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="delete()">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <div>
+      <ion-row>
+        <ion-col>
+          <img [src]=memoryImage alt="this is the image"/>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col>
+          <button ion-button outline block small color="secondary" (click)="openImagePicker()">Change Picture</button>
+        </ion-col>
+      </ion-row>
+    </div>
+    <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+      <ion-item>
+        <ion-label floating color="primary">memoryTitle</ion-label>
+        <ion-input type="text" formControlName="memoryTitle"  required></ion-input>
+      </ion-item>
+      <div>
+          <ng-container *ngFor="let validation of validation_messages.memoryTitle">
+            <div class="error-message" *ngIf="validations_form.get('memoryTitle').hasError(validation.type) && (validations_form.get('memoryTitle').dirty || validations_form.get('memoryTitle').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+      </div>
+      <ion-item>
+        <ion-label floating color="primary">memoryDescription</ion-label>
+        <ion-input type="text" formControlName="memoryDescription"  required></ion-input>
+      </ion-item>
+      <div>
+          <ng-container *ngFor="let validation of validation_messages.memoryDescription">
+            <div class="error-message" *ngIf="validations_form.get('memoryDescription').hasError(validation.type) && (validations_form.get('memoryDescription').dirty || validations_form.get('memoryDescription').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+      </div>
+      <ion-item>
+          <ion-label floating color="primary">Location</ion-label>
+          <ion-input type="text" formControlName="memoryLocation" ></ion-input>
+        </ion-item>
+      <ion-item>
+          <ion-label floating color="primary">Date</ion-label>
+          <ion-datetime formControlName="memoryDate" displayFormat="DD-MM-YYYY" min="1900" max="2021">
+          </ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label floating color="primary">Important Rate</ion-label>
+          <ion-select multiple="false" interface="popover" formControlName="importantRate">
+            <ion-option>High Important</ion-option>
+            <ion-option>Medium Important</ion-option>
+            <ion-option>Low Important</ion-option>
+          </ion-select>
+      </ion-item>
+      <button ion-button block type="submit" color="sand" [disabled]="!validations_form.valid">Save</button>
+    </form>
+  
+  </ion-content>
